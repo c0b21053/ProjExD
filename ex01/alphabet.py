@@ -27,11 +27,11 @@ def kaitou(a,b):
         print("正解です。それでは、具体的に欠損文字を一つずつ入力してください。")
         while True:
             ans1 = input("一つ目の文字を入力してください")
-            if ord(ans1)-64 in a:
-                n = ord(ans1)-64
+            if int(ord(ans1))-64 in a:
+                n = int(ord(ans1))-64
                 a.remove(n)
                 ans2 = input("二つ目の文字を入力してください")
-                if ord(ans2)-64 in a:
+                if int(ord(ans2))-64 in a:
                     print("正解です！")
                     break
                 else:
