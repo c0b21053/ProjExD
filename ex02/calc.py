@@ -6,12 +6,13 @@ from numpy import column_stack
 def button_click(event):
     btn = event.widget
     txt = btn["text"]
-    tkm.showinfo(txt,f"{txt}のボタンがクリックされました")
+    #tkm.showinfo(txt,f"{txt}のボタンがクリックされました")
+    entry.insert(tk.END,txt)
 
 root = tk.Tk()
 root.geometry("300x500")
 
-entry = tk.Entry(root, width=10, font=("",40))
+entry = tk.Entry(root, width=10, font=("",40), justify="right")
 entry.grid(row=0,column=0,columnspan=3)
 
 r,c  = 1, 0
