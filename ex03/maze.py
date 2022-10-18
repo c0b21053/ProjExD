@@ -10,8 +10,9 @@ def key_up(event):
     key = ""
 
 def main_loop():
-    global mx, my
+    global mx, my, g
     global cx, cy
+    g = 1
     if key == "Up":
         my -= 1
     if key == "Down":
@@ -31,9 +32,16 @@ def main_loop():
             mx +=1
         if key == "Right":
             mx -= 1
+    
     canv.coords("tori", cx, cy)
     root.after(100, main_loop)
-    
+
+    if mx == 13 and my == 7:
+        message = tk.Message(root, text = "Congratulation!!",
+        font=("",60),bg = "yellow")
+        message.place(x=550,y=300,width=400,height=300)
+
+        return    
 
 
 if __name__ == "__main__":
@@ -46,7 +54,6 @@ if __name__ == "__main__":
     maze_lst = mm.make_maze(15, 9)
     mm.show_maze(canv, maze_lst)
 
-
     tori = tk.PhotoImage(file = "fig/3.png")
     mx, my = 1, 1
     cx, cy = mx*100+50, my*100+50
@@ -56,6 +63,9 @@ if __name__ == "__main__":
     root.bind("<KeyPress>", key_down)
     root.bind("<KeyRelease>", key_up)
 
+    
     main_loop()
+    
+
 
     root.mainloop()
