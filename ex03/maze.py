@@ -20,7 +20,17 @@ def main_loop():
         mx -=1
     if key == "Right":
         mx += 1
-    cx, cy = mx*100, my*100
+    if maze_lst[my][mx] == 0:
+        cx, cy = mx*100+50, my*100+50
+    else:
+        if key == "Up":
+            my += 1
+        if key == "Down":
+            my -= 1
+        if key == "Left":
+            mx +=1
+        if key == "Right":
+            mx -= 1
     canv.coords("tori", cx, cy)
     root.after(100, main_loop)
     
@@ -38,8 +48,8 @@ if __name__ == "__main__":
 
 
     tori = tk.PhotoImage(file = "fig/3.png")
-    mx, my = 1.5, 1.5
-    cx, cy = mx*100, my*100
+    mx, my = 1, 1
+    cx, cy = mx*100+50, my*100+50
     canv.create_image(cx, cy, image=tori, tag="tori")
 
     key = ""
