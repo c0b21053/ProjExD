@@ -40,8 +40,9 @@ def main_loop():
         message = tk.Message(root, text = "Congratulation!!",
         font=("",60),bg = "yellow")
         message.place(x=550,y=300,width=400,height=300)
-
-        return    
+    
+    if key == "f":
+        root.destroy()
 
 
 if __name__ == "__main__":
