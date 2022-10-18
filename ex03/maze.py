@@ -10,9 +10,8 @@ def key_up(event):
     key = ""
 
 def main_loop():
-    global mx, my, g
+    global mx, my
     global cx, cy
-    g = 1
     if key == "Up":
         my -= 1
     if key == "Down":
