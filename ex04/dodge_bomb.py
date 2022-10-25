@@ -94,9 +94,7 @@ def main():
         if tori_rct.colliderect(drink_rct):
             ms += 0.1
             smode = 1
-
-
-            
+  
 
         if tori_rct.colliderect(bomb_rct):
             vx, vy = 0, 0
@@ -109,8 +107,6 @@ def main():
         pg.display.update()
         clock.tick(1000)
     
-
-    pass
 
 if __name__ == "__main__":
     pg.init()
