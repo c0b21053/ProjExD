@@ -32,15 +32,16 @@ def main():
     ftori_rct = ftori_img.get_rect()
     ftori_rct.center = 800, 600
 
-    bomb_sfc = pg.image.load("fig/bomb.png")
+    bomb_sfc = pg.image.load("fig/bomb.png")   #爆弾画像
     bomb_sfc = pg.transform.rotozoom(bomb_sfc, 0, 0.1)
     bomb_rct = bomb_sfc.get_rect()
     bomb_rct.centerx = randint(0, scrn_rct.width)
     bomb_rct.centery = randint(0, scrn_rct.height)
 
-    drink_sfc = pg.image.load("fig/drink.png")
+    drink_sfc = pg.image.load("fig/drink.png")   #ドリンク
     drink_sfc = pg.transform.rotozoom(drink_sfc, 0, 0.1)
     drink_rct = drink_sfc.get_rect()
+    drink_rct.center = 100, 750
 
     vx, vy = +1, +1
     ms = 1
@@ -56,7 +57,7 @@ def main():
         
         smode = 0
         if smode == 0:
-            scrn_sfc.blit(drink_sfc, [100, 750])
+            scrn_sfc.blit(drink_sfc, drink_rct)
         
         
         key_states = pg.key.get_pressed()
@@ -91,9 +92,9 @@ def main():
         scrn_sfc.blit(bomb_sfc, bomb_rct)
 
         if tori_rct.colliderect(drink_rct):
-            ms += 2
+            ms += 0.1
             smode = 1
-            scrn_sfc.fill((0, 0, 0))
+
 
             
 
