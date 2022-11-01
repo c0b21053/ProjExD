@@ -131,6 +131,9 @@ def main():
         if kkt.rct.colliderect(bkd.rct): # こうかとんrctが爆弾rctと重なったら
             return
 
+        if kkt.rct.colliderect(hagu.rct): # こうかとんrctが爆弾rctと重なったら
+            return
+
         pg.display.update() #練習2
         clock.tick(1000)
 
